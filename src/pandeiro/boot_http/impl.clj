@@ -41,7 +41,7 @@
             {:status  200
              :headers {"Content-Type" "text/html"}
              :body    (if-let [index-file (index-file-exists? files)]
-                        (slurp index-file)
+                        (io/file index-file)
                         (format (str "<!doctype html><meta charset=\"utf-8\">"
                                      "<body><h1>Directory listing</h1><hr>"
                                      "<ul>%s</ul></body>")
